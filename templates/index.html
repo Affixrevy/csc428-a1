@@ -107,11 +107,11 @@
 
   <body>
     <div>
-      <h1 align="center"><b>RQA Chat</b></h1>
-      <h4 align="center">
+      <h1 style="text-align: center;"><b>RQA Chat</b></h1>
+      <h4 style="text-align: center;">
         <b>A chatbot to help you analyze stressors in your life</b>
       </h4>
-      <p align="center">
+      <p style="display: block; text-align: center;">
         Note: This system sends all user inputs to OpenAI's GPT API. Inputs
         should not be considered secure or confidential.
       </p>
@@ -164,7 +164,7 @@
             $.get("/get", { msg: rawText }).done(function (data) {
               var botHtml =
                 '<div class="text"><div class="botText"><p>' +
-                data +
+                data.replaceAll("\n", "<br>").replaceAll("\t", "&emsp;") +
                 "</p></div></div>";
               $("#chatbox").append(botHtml);
               document
