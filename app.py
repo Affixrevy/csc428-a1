@@ -4,7 +4,10 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
 # Put your key here
-openai.api_key = "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"
+openai.api_key = ""
+
+# Set GPT Version [3 or 4]
+GPT_VERSION = 4
 
 # TODO: Test and modify variations of this prompt
 # I want variations of the prompt that make it adhere to the script a bit less
@@ -42,7 +45,7 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
     print(history)
 
     response = openai.ChatCompletion.create(
-        model=model,
+        model={3: "gpt-3.5-turbo", 4: "gpt-4"}[GPT_VERSION],
         messages=history,
         temperature=1,
         max_tokens=256,
