@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
 # Put your key here
-openai.api_key = ""
+openai.api_key = "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"
 
 # Set GPT Version [3 or 4]
 GPT_VERSION = 4
